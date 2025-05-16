@@ -2,7 +2,6 @@
 <%@ page import="java.util.*, model.Film" %>
 
 <%
-    // Ambil parameter dari URL atau redirect
     String filmIndexStr = request.getParameter("filmIndex");
     String jamTayang = request.getParameter("jamTayang");
     String jumlahTiketStr = request.getParameter("jumlahTiket");
@@ -28,8 +27,6 @@
     Film film = filmList.get(filmIndex);
     int hargaTiket = film.getHargaTiket();
     int total = hargaTiket * jumlahTiket;
-
-    // Waktu cetak
     String waktuCetak = new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new Date());
 %>
 
@@ -39,107 +36,140 @@
     <meta charset="UTF-8">
     <title>Struk Pemesanan Tiket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet"> <!-- Pastikan tersambung -->
     <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 80px;
+        }
+
         .struk-box {
-            border: 2px dashed #444;
-            padding: 25px 40px;
-            max-width: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(6px);
+            border: 1px dashed #00bfff;
+            border-radius: 16px;
+            padding: 30px 40px;
+            max-width: 500px;
             margin: 40px auto;
-            background: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            color: #222;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
+
         .struk-logo {
-            max-width: 120px;
-            margin: 0 auto 15px auto;
+            max-width: 100px;
+            margin: 0 auto 20px;
             display: block;
+            border-radius: 10px;
         }
-        h3 {
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .info-label {
-            float: left;
+
+        h4 {
+            text-align: center;
+            margin-bottom: 20px;
             font-weight: bold;
+            color: #00bfff;
         }
-        .info-value {
-            float: right;
-        }
+
         .info-row {
-            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
             padding: 6px 0;
-            border-bottom: 1px dotted #bbb;
-            font-size: 14px;
+            border-bottom: 1px dashed #444;
+            font-size: 15px;
         }
+
         .total-row {
             font-size: 18px;
             font-weight: bold;
-            padding: 10px 0;
+            color: #00ffcc;
+            padding-top: 12px;
+            border-top: 1px solid #666;
+            margin-top: 10px;
         }
+
         .footer {
-            margin-top: 20px;
-            font-size: 12px;
+            margin-top: 25px;
+            font-size: 13px;
             text-align: center;
-            color: #666;
+            color: #bbb;
         }
+
+        .btn-success {
+            background-color: #00bfff;
+            border: none;
+        }
+
+        .btn-success:hover {
+            background-color: #009acd;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
         @media print {
             .no-print {
                 display: none !important;
             }
+
             body {
                 background: none !important;
-                margin: 0 !important;
+                color: #000 !important;
+                margin: 0;
             }
+
             .struk-box {
                 box-shadow: none !important;
                 border: none !important;
                 max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 !important;
+                background: #fff !important;
+                color: #000 !important;
+                backdrop-filter: none !important;
             }
         }
     </style>
 </head>
 <body>
-    <jsp:include page="navbar.jsp"/>
-    
+
+<jsp:include page="navbar.jsp"/>
+
 <div class="struk-box">
-    <!-- Logo bioskop -->
     <img src="assets/mtl.jpg" alt="Logo Bioskop" class="struk-logo">
 
-    <h4>🎟️ TIKET BIOSKOP 🎟️</h4>
+    <h4>🎟️ STRUK PEMESANAN 🎟️</h4>
 
     <div class="info-row">
-        <span class="info-label">Judul Film</span>
-        <span class="info-value"><%= film.getJudul() %></span>
+        <span>Judul Film</span>
+        <span><%= film.getJudul() %></span>
     </div>
     <div class="info-row">
-        <span class="info-label">Jam Tayang</span>
-        <span class="info-value"><%= jamTayang %></span>
+        <span>Jam Tayang</span>
+        <span><%= jamTayang %></span>
     </div>
     <div class="info-row">
-        <span class="info-label">Jumlah Tiket</span>
-        <span class="info-value"><%= jumlahTiket %></span>
+        <span>Jumlah Tiket</span>
+        <span><%= jumlahTiket %></span>
     </div>
     <div class="info-row">
-        <span class="info-label">Harga per Tiket</span>
-        <span class="info-value">Rp <%= String.format("%,d", hargaTiket) %></span>
+        <span>Harga / Tiket</span>
+        <span>Rp <%= String.format("%,d", hargaTiket) %></span>
     </div>
-    <div class="total-row">
-        <span class="info-label">Total Bayar</span>
-        <span class="info-value">Rp <%= String.format("%,d", total) %></span>
+    <div class="info-row total-row">
+        <span>Total Bayar</span>
+        <span>Rp <%= String.format("%,d", total) %></span>
     </div>
 
     <div class="footer">
         <p><em>Dicetak: <%= waktuCetak %></em></p>
-        <p>Thx udah pesan tiket kami!</p>
+        <p>Terima kasih telah memesan di <strong>myCinema</strong> 🎬</p>
     </div>
 
-    <div class="text-center mt-3 no-print">
-        <button class="btn btn-success" onclick="window.print()">🖨️ Cetak Tiket</button>
-        <a href="index.jsp" class="btn btn-secondary ms-2">Kembali</a>
+    <div class="text-center mt-4 no-print">
+        <button class="btn btn-success"><i class="bi bi-printer-fill me-1"></i>Cetak Tiket</button>
+        <a href="index.jsp" class="btn btn-secondary ms-2"><i class="bi bi-arrow-left-circle me-1"></i>Kembali</a>
     </div>
 </div>
+
 </body>
 </html>
