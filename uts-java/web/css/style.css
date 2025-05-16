@@ -1,8 +1,9 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #121212; /* warna gelap elegan */
   margin: 0;
   padding-top: 70px; /* agar konten tidak tertutup navbar */
+  color: #fff; /* warna teks agar kontras */
 }
 
 .navbar-brand {
@@ -18,4 +19,92 @@ body {
   transition: transform 0.3s ease;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+.card, .struk-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+.text-neon {
+  color: #00ffc8;
+  text-shadow: 0 0 5px #00ffc8, 0 0 10px #00ffc8, 0 0 20px #00ffc8;
+}
+.card-text {
+  color: #ffffff !important;
+}
+.card-title {
+  color: #00bfff;
+}
+.card-body {
+  color: #ffffff;
+}
 
+.navbar {
+  background: linear-gradient(to right, #000000, #1f1f1f); /* gradasi halus */
+}
+
+.navbar .navbar-brand .brand-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #00bfff;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #00bfff !important;
+  text-shadow: 0 0 5px rgba(0,191,255,0.5);
+}
+    /* Modal background */
+    .modal-content {
+        background: linear-gradient(to right, #0d6efd, #0a58ca); /* Biru gradasi */
+        color: black; 
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header,
+    .modal-footer {
+        border: none;
+    }
+
+    .modal-title {
+        font-weight: bold;
+        font-size: 24px;
+    }
+
+    .form-label {
+        color: #fff;
+        font-weight: 500;
+    }
+
+    .form-control,
+    .form-select {
+        background-color: #e9ecef;
+        border: none;
+        color: #000;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-success {
+        background-color: #ffc107;
+        border: none;
+        color: #000;
+    }
+
+    .btn-success:hover {
+        background-color: #e0a800;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+    }
