@@ -16,12 +16,14 @@ Aplikasi ini adalah sebuah aplikasi web sederhana berbasis JSP (Java Server Page
 
 ## 📸 Screenshot Tampilan
 
-
 ### Dashboard / Daftar Film
+![Home](https://github.com/user-attachments/assets/a771b4e8-e464-4988-9d4b-8b777493bea6)
 
 ### Formulir Pemesanan
+![formPesan](https://github.com/user-attachments/assets/00463f59-018f-4ebe-880e-e4aeeed06c3f)
 
 ### Struk Pemesanan
+![struk](https://github.com/user-attachments/assets/cae76045-4f2d-48a8-8255-133f9625710c)
 
 ---
 
