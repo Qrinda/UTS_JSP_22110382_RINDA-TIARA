@@ -1,0 +1,21 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding-top: 70px; /* agar konten tidak tertutup navbar */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
